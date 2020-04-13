@@ -10,19 +10,34 @@
     "@types/node": "^12.12.35",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
+    "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "typescript": "^3.7.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@zeit/next-sass": "^1.0.1",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "node-sass": "^4.13.1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "starts": "NODE_ENV=production node server.js",
+    "export": "npm run build && next export",
+    "start2": "react-scripts start",
+    "build2": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "update": "npx npm-check-updates",
+    "tree": "npx file-tree-generator"
   },
   "browserslist": {
     "production": [

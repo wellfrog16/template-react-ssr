@@ -1,0 +1,7 @@
+/build/
+/config/
+/dist/
+/public/
+/node_modules/
+
+next.config.js
