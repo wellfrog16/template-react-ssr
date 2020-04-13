@@ -1,24 +1,28 @@
-const withSass = require('@zeit/next-sass');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-module.exports = withSass({
-    cssModules: true,
-    cssLoaderOptions: {
-        importLoaders: 1,
-        localIdentName: "[local]___[hash:base64:5]",
-    },
+module.exports = {
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-        isServer && config.module.rules.push({
-            test: /\.(ts|tsx|js|jsx)$/,
-            enforce: "pre",
-            exclude: [/node_modules/, /\.next/],
-            use: [{
-                loader: "eslint-loader",
-                options: {
-                    emitError: true,
-                    useEslintrc: true
-                }
-            }]
-        });
+        if (isServer) {
+            config.module.rules.push({
+                test: /\.(ts|tsx|js|jsx)$/,
+                enforce: "pre",
+                exclude: [/node_modules/, /\.next/],
+                use: [{
+                    loader: "eslint-loader",
+                    options: {
+                        emitError: true,
+                        useEslintrc: true
+                    }
+                }]
+            });
+
+            config.plugins.push(
+                new StyleLintPlugin({
+                    context: 'pages',
+                    files: ['**/*.less', '**/*.s?(a|c)ss'],
+                }),
+            );
+        }
         return config
     },
-});
+};
