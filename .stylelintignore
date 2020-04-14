@@ -1,6 +1,7 @@
 /node_modules/
 /public/
 /dist/
+/.next/
 *.js
 *.tsx
 *.ts
