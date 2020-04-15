@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 import { classnamesBind } from '../../utils/index';
-// import style from './index.module.scss';
-import styles from './test.module.scss';
-// import '../../src/components/test/x.scss';
+import style from './index.module.less';
+// import styles from './test.module.css';
 
-const cx = classnamesBind.bind(styles);
+const cx = classnamesBind.bind(style);
 const className = cx({
     qq: true,
     tt: true,
@@ -14,10 +14,16 @@ const className = cx({
 const app: React.FC = () => {
     const a = 'asdqwe';
     return (
-        <div className={className}>
-            <span>{ a }</span>
+        <div>
+            <span className={className}>{ a }</span>
             <span className="ssr">980</span>
             <img src="/logo192.png" alt="" />
+            <div>
+                <Button type="primary">Primary</Button>
+                <Button>Default</Button>
+                <Button type="dashed">Dashed</Button>
+                <Button type="link">Link</Button>
+            </div>
         </div>
     );
 };

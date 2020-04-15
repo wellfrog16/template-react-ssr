@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './index.module.scss';
+// import style from './index.module.css';
 
 export interface Props {
     content?: string;
@@ -9,7 +9,7 @@ export interface Props {
 const Com: React.FC<Props> = ({ content }) => {
     const x = '111';
     return (
-        <footer className={style.footer}>
+        <footer>
             { x }
             { content }
         </footer>

@@ -5,7 +5,8 @@ import App from 'next/app';
 import Head from 'next/head';
 // import PropTypes from 'prop-types';
 import Layout from '@com/layout/index';
-import '@/assets/style/main.scss'; // 全局样式
+// import '@/assets/style/main.less'; // 全局样式
+import '../assets/style/main.less';
 
 const test = () => new Promise<number>(resolve => {
     setTimeout(() => {

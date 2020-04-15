@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './index.module.scss';
+// import style from './index.module.css';
 
 export interface IProps {
     content?: string;
@@ -9,7 +9,7 @@ export interface IProps {
 const Com: React.FC<IProps> = ({ content }) => {
     const x = '111';
     return (
-        <header className={style.header}>
+        <header>
             { x }
             { content }
         </header>
