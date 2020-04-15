@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Header, { IProps as headerProps } from './header';
-import Header from './header';
+import Header, { IProps } from './header';
+// import Header from './header';
 import Footer from './footer';
 
-// interface IProps {
-//     headerProps: headerProps,
-// }
+interface IMyProps {
+    headerProps: IProps;
+    children?: React.ReactNode;
+}
 
-const Com: React.FC = props => {
+const Com: React.FC<IMyProps> = props => {
     const { children } = props;
     return (
         <div>
@@ -21,10 +22,14 @@ const Com: React.FC = props => {
 
 Com.defaultProps = {
     children: () => <div />,
+    // headerProps: {
+    //     content: '',
+    // },
 };
 
 Com.propTypes = {
     children: PropTypes.node,
+    // headerProps: ,
 };
 
 export default Com;

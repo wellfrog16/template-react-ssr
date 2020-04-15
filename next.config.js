@@ -1,7 +1,15 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { getBabelLoader, fixBabelImports } = require('customize-cra');
 const path = require('path');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
+    assetPrefix: './',
+    env: {
+        TEST: process.env.TEST,
+        CDN_URL: isProd ? 'https://api.example.com' : '.',
+    },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
         if (isServer) {
             // 设置eslint强制错误
@@ -26,10 +34,26 @@ module.exports = {
                 }),
             );
         }
+        
+        // else {
+        //     console.log(defaultLoaders);
+        //     config.module.rules[0].use.options.babelPresetPlugins.push(['import', {
+        //         libraryName: 'antd',
+        //         libraryDirectory: 'es',
+        //         style: true,
+        //     }]);
+        // }
+        // getBabelLoader(config).options.plugins.push('import', {
+        //     libraryName: 'antd',
+        //     libraryDirectory: 'es',
+        //     style: true,
+        // });
 
         // 路径别名
-        config.resolve.alias['@'] = path.resolve(__dirname, './src');
-        config.resolve.alias['@com'] = path.resolve(__dirname, './src/components');
+        if (dev) {
+            config.resolve.alias['@'] = path.resolve(__dirname, './src');
+            config.resolve.alias['@com'] = path.resolve(__dirname, './src/components');
+        }
         return config
     },
 };
