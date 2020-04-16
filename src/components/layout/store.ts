@@ -1,4 +1,4 @@
-export default {
+const store = {
     header: {
         title: '111',
         content: '222',
@@ -8,3 +8,6 @@ export default {
         content: 'contentTitle',
     },
 };
+
+export type IStore = typeof store;
+export default store;
