@@ -13,7 +13,7 @@ const Com: React.FC<IMyProps> = props => {
     const { children } = props;
     return (
         <div>
-            <Header content="这里是头" />
+            <Header />
             <main>{ children }</main>
             <Footer content="这里是脚" />
         </div>

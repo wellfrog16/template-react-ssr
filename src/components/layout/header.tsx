@@ -1,27 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import style from './index.module.css';
+import style from './index.module.less';
 
 export interface IProps {
     content?: string;
 }
 
-const Com: React.FC<IProps> = ({ content }) => {
-    const x = '111';
-    return (
-        <header>
-            { x }
-            { content }
-        </header>
-    );
-};
+class Com extends React.Component {
+    // @ts-ignore
+    constructor() {
+        // @ts-ignore
+        super();
+        this.state = { bar: 0 };
+    }
 
-Com.defaultProps = {
-    content: '',
-};
-
-Com.propTypes = {
-    content: PropTypes.string,
-};
+    render() {
+        // @ts-ignore
+        const { bar } = this.state;
+        return (
+            <header className={style.header}>
+                { bar }
+            </header>
+        );
+    }
+}
 
 export default Com;

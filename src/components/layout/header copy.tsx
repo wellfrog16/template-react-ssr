@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './index.module.less';
 
-export interface Props {
+export interface IProps {
     content?: string;
 }
 
-const Com: React.FC<Props> = ({ content }) => {
+const Com: React.FC<IProps> = ({ content }) => {
     const x = '111';
     return (
-        <footer className={style.footer}>
+        <header className={style.header}>
             { x }
             { content }
-        </footer>
+        </header>
     );
 };
 
