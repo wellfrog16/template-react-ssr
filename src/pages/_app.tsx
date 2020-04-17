@@ -5,7 +5,7 @@ import App from 'next/app';
 import Head from 'next/head';
 // import PropTypes from 'prop-types';
 import Layout from '@com/layout/index';
-import '@/assets/style/main.less'; // 全局样式
+import api from '@/api/mock/index';
 
 const test = () => new Promise<number>(resolve => {
     setTimeout(() => {
@@ -20,6 +20,13 @@ class MyApp extends App {
         // console.log(ctx.req);
         // console.log(ctx.pathname);
         // console.log(Component);
+        const res = await api.detail();
+        console.log(res);
+        api.detail().then(ccc => {
+            console.log('promise');
+            console.log(ccc);
+            // console.log(ccc);
+        });
         const z = await test();
         const json = { x: 1, y: 1, z };
         return { pageProps: json };

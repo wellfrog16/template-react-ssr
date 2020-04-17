@@ -71,10 +71,8 @@ module.exports = withPlugins([antdLessLoader], {
         }
 
         // 路径别名
-        if (dev) {
-            config.resolve.alias['@'] = path.resolve(__dirname, './src');
-            config.resolve.alias['@com'] = path.resolve(__dirname, './src/components');
-        }
+        config.resolve.alias['@'] = path.resolve(__dirname, './src');
+        config.resolve.alias['@com'] = path.resolve(__dirname, './src/components');
         return config
     },
 });

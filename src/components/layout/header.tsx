@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import style from './index.module.less';
 import store, { IStore } from './store';
 
-class Com extends React.Component<any, IStore> {
+class Com extends Component<any, IStore> {
     constructor(state: IStore) {
         super(state);
         this.state = store;

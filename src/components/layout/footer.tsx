@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './index.module.less';
+import '@/assets/style/main.less'; // 全局样式
 
 export interface Props {
     content?: string;

@@ -19,8 +19,8 @@ const app: React.FC = () => {
             <span className="ssr">980</span>
             <img src="/logo192.png" alt="" />
             <div>
-                <Button type="primary">Primary</Button>
-                <Button>Default</Button>
+                <Button type="primary" className="or-button">Primary</Button>
+                <Button className={style.test}>Default</Button>
                 <Button type="dashed">Dashed</Button>
                 <Button type="link">Link</Button>
             </div>
